@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3306
--- Tiempo de generación: 23-05-2022 a las 21:22:21
--- Versión del servidor: 5.7.34-cll-lve
--- Versión de PHP: 7.3.32
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 25-05-2022 a las 03:16:13
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `maildatabase` (
   `id` int(11) NOT NULL,
-  `user` varchar(30) NOT NULL,
+  `userId` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `subject` varchar(50) NOT NULL,
   `message` text NOT NULL
@@ -40,8 +39,10 @@ CREATE TABLE `maildatabase` (
 -- Volcado de datos para la tabla `maildatabase`
 --
 
-INSERT INTO `maildatabase` (`id`, `user`, `email`, `subject`, `message`) VALUES
-(1, 'Jorge', 'jorge.perez@gmail.com', 'any subject', 'Hello this is a notification from PHP');
+INSERT INTO `maildatabase` (`id`, `userId`, `email`, `subject`, `message`) VALUES
+(1, 'Jorge', 'jorge.perez@gmail.com', 'any subject', 'jorge esta es la primera notificacion'),
+(2, 'Pedro', 'pedro@gmail.com', 'asunto2', 'como estas de nuevo pedro?'),
+(3, 'Juan', 'JuanMail@gmail.com', 'Asunto2', 'Hola Como te ha ido con este tema???');
 
 --
 -- Índices para tablas volcadas
@@ -61,7 +62,7 @@ ALTER TABLE `maildatabase`
 -- AUTO_INCREMENT de la tabla `maildatabase`
 --
 ALTER TABLE `maildatabase`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

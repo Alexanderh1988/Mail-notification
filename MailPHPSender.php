@@ -1,49 +1,43 @@
 <?php
  
 //local:
-$db = mysqli_connect('127.0.0.1', 'root', '', 'chs44206_dbhstech');
+$con = mysqli_connect('127.0.0.1', 'root', '', 'chs44206_dbhstech');
  
-// session_start();  //22
-
-if (mysql_close()qli_connect_error()) {
-    echo 'Database connection failed with following errors: ' . mysqli_connect_error();
-    die();
+if (mysqli_connect_errno()) {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  var_dump("feo");
+  exit();
 }
-
-  // if(isset($_GET['delete'])){  
-
- if(isset($_GET['user'])){  
+ 
+ if(isset($_GET['userId'])){  
                 
-$user = $_GET['userId'];
-
-$sql = "SELECT * FROM `mailList` WHERE notificationUser=$userId";
-
-$featured = $db->query($sql);
-$total = 0;
-$k = 0;
-
-while ($data = mysqli_fetch_assoc($featured)):
-
-    //$id = $dato['id'];
-    $asunto = $data['asunto'];
-    $message = $data['message'];
-    $to = $data['to'];
-       
-
-endwhile;
-
-
-$to      = 'nobody@example.com';
-$subject = 'the subject';
-$message = 'hello';
+$userId = $_GET['userId'];
+ 
+}
+  
+$query = "SELECT *  FROM maildatabase WHERE userId='".$userId."'";
+ 
+  
+ if ($result = mysqli_query($con, $query)) {
+ 
+  while ($row = mysqli_fetch_row($result)) {
+  
+ $to  = $row[2];
+$subject   = $row[3];
+ $message   = $row[4];
+}
+}
+ 
 $headers = array(
     'From' => 'fiscalia@skic.com',
     'Reply-To' => 'alex.utfsm@gmail.com',
-    'X-Mailer' => 'PHP/' . phpversion()
-);
+    'X-Mailer' => 'PHP/' . phpversion());
+  
 
-mail($to, $subject, $message, $headers);
+mail($to, $tsubject, $message, $headers);
 
+mysqli_close($con);
+ 
 
-               }
+ 
 ?>
