@@ -18,7 +18,7 @@ blog to the most popular websites in the world. PHP is distributed under the
 [PHP License v3.01](LICENSE).
 
 you can activate it by a http request:
-http://localhost/mailNotification/MailPHPSender.php?userId=Pedro
+{you website location}/MailPHPSender.php?userId=Pedro
 For automatic notification just use cronjob
 
 this small script was used for risk management monitoring to each Risk Owner Action. We made the workshop more dynamic 
